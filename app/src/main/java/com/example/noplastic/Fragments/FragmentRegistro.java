@@ -85,6 +85,7 @@ public class FragmentRegistro extends Fragment {
                 } else {
                     Toast.makeText(getActivity(), "Debe agregar todos los datos para el Registro!!", Toast.LENGTH_LONG).show();
                 }
+
             }
         });
     }

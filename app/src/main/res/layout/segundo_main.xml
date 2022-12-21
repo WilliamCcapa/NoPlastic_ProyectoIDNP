@@ -9,25 +9,10 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabMenu"
+        android:backgroundTint="#19DD86"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tlInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Informacion" />
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tlRegistrar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Registro"/>
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tlEstadisticas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Estadísticas" />
+        android:layout_height="wrap_content"
+        app:tabTextColor="@color/white">
 
 
     </com.google.android.material.tabs.TabLayout>

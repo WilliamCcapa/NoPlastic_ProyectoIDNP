@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:backgroundTint="#19DD86"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/contraint">
+            <TextView
+                android:id="@+id/tvMisPlasticos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="2dp"
+                android:drawablePadding="8dp"
+                android:padding="12dp"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:text="Plastico Name"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/contraint"
+            android:orientation="horizontal"
+            android:id="@+id/primero"
+            android:background="@drawable/borde">
+            <TextView
+                android:id="@+id/tvd"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/borde"
+                android:drawablePadding="8dp"
+                android:paddingVertical="4dp"
+                android:paddingStart="12dp"
+                android:text="Descripcion: "
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/borde"
+                android:drawablePadding="8dp"
+                android:paddingVertical="4dp"
+                android:paddingStart="12dp"
+                android:text="Aqui va la des"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/primero"
+            android:orientation="horizontal"
+            android:id="@+id/segundo"
+            android:background="@drawable/borde">
+            <TextView
+                android:id="@+id/tvu"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/borde"
+                android:drawablePadding="8dp"
+                android:paddingVertical="4dp"
+                android:paddingStart="12dp"
+                android:text="Ubicacion: "
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvUbicacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/borde"
+                android:drawablePadding="8dp"
+                android:paddingVertical="4dp"
+                android:paddingStart="12dp"
+                android:text="Aqui va la des"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/segundo"
+            android:orientation="horizontal"
+            android:id="@+id/tercero"
+            android:background="@drawable/borde">
+            <TextView
+                android:id="@+id/f"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/borde"
+                android:drawablePadding="8dp"
+                android:paddingVertical="4dp"
+                android:paddingStart="12dp"
+                android:text="Fecha: "
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvFecha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/borde"
+                android:drawablePadding="8dp"
+                android:paddingVertical="4dp"
+                android:paddingStart="12dp"
+                android:text="Aqui va la des"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tercero"
+            android:orientation="horizontal"
+            android:id="@+id/cuarto"
+            android:background="@drawable/borde">
+            <TextView
+                android:id="@+id/c"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/borde"
+                android:drawablePadding="8dp"
+                android:paddingVertical="4dp"
+                android:paddingStart="12dp"
+                android:text="Categoria: "
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvCategoria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/borde"
+                android:drawablePadding="8dp"
+                android:paddingVertical="4dp"
+                android:paddingStart="12dp"
+                android:text="Aqui va la des"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

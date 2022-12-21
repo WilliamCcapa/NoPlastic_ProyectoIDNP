@@ -13,10 +13,10 @@ class SegundoActivity: AppCompatActivity() {
         var viewPager = findViewById<ViewPager>(R.id.viewPager)
         val tabLayout=findViewById<TabLayout>(R.id.tabMenu)
         val fragmentAdapter= FragmentAdapter(supportFragmentManager)
-        fragmentAdapter.addFragment(FragmentInfo(),"Información")
+        fragmentAdapter.addFragment(FragmentInfo(),"Info")
         fragmentAdapter.addFragment(FragmentRegistro(),"Registro")
-        fragmentAdapter.addFragment(FragmentEstadisticas(),"Estadísticas")
-
+        fragmentAdapter.addFragment(FragmentMisPlasticos (),"Mis plásticos")
+        fragmentAdapter.addFragment(FragmentEstadisticas(),"Gráficos")
         viewPager.adapter = fragmentAdapter
         tabLayout.setupWithViewPager(viewPager)
     }

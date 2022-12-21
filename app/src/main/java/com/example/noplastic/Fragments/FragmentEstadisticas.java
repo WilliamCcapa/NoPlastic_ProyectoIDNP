@@ -1,6 +1,8 @@
 
 package com.example.noplastic.Fragments;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -11,14 +13,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import com.example.noplastic.R;
 
+import com.example.noplastic.InformacionPlasticos.ListPlasticos;
+import com.example.noplastic.R;
+import com.example.noplastic.db.DbHelper;
+
+import java.util.ArrayList;
 
 
 public class FragmentEstadisticas extends  Fragment{
 
     ImageView imageView;
     ImageView imageView1;
+    Context context;
     //private Button button_home;
 
     public FragmentEstadisticas(){
@@ -34,6 +41,7 @@ public class FragmentEstadisticas extends  Fragment{
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_estadisticas, container, false);
         int [] datos = new int[] {5,10,8,2};
+
         createCrafico(datos,view);
         return view;
     }
@@ -65,6 +73,8 @@ public class FragmentEstadisticas extends  Fragment{
         imageView1 = view.findViewById(R.id.imageView2);
         imageView1.setImageBitmap(bitmap1);
 
+
+        ArrayList<ListPlasticos> listaPlasticos = new ArrayList<>();
         //rect1(canvas,paint, datos,y);
         color(canvas1,paint1,datos );
     }
