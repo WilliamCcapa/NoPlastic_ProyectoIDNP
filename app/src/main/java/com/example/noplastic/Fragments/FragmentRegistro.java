@@ -1,7 +1,9 @@
 package com.example.noplastic.Fragments;
 
 import static android.app.Activity.RESULT_OK;
+import static android.content.Context.NOTIFICATION_SERVICE;
 
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -20,6 +22,8 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.noplastic.R;
@@ -79,6 +83,7 @@ public class FragmentRegistro extends Fragment {
                     if( id > 0) {
                         Toast.makeText(getActivity(), "Plástico registrado exitasamente!!", Toast.LENGTH_LONG).show();
                         Limpiar();
+
                     } else {
                         Toast.makeText(getActivity(), "Ups, Ocurrió un error en registro!!", Toast.LENGTH_LONG).show();
                     }
@@ -88,6 +93,7 @@ public class FragmentRegistro extends Fragment {
 
             }
         });
+
     }
     ActivityResultLauncher<Intent> camaraLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
         @Override
