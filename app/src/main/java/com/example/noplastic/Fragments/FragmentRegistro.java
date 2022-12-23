@@ -3,10 +3,17 @@ package com.example.noplastic.Fragments;
 import static android.app.Activity.RESULT_OK;
 import static android.content.Context.NOTIFICATION_SERVICE;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
@@ -23,20 +30,26 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.noplastic.R;
 import com.example.noplastic.db.DbHelper;
 import com.example.noplastic.db.DbPlastico;
 
-public class FragmentRegistro extends Fragment {
+public class FragmentRegistro extends Fragment  {
 
 
     EditText txtNombrePlastic, txtFecPlastic, txtOrigenPlastic, txtUbicacionPlastic, txtDescripcionPlastic;
     Spinner categoriaPlastic;
     Button btnRegistrarPlastic, btnTomarFotoPlastic;
     ImageView imgfotoPlastic;
+    private final static String CHANNEL_ID = "NOTIFICACION";
+    private final static int NOTIFICACION_ID = 0;
+    private PendingIntent pendingIntent;
+
     public FragmentRegistro() {
         // Required empty public constructor
     }
@@ -83,6 +96,9 @@ public class FragmentRegistro extends Fragment {
                     if( id > 0) {
                         Toast.makeText(getActivity(), "Plástico registrado exitasamente!!", Toast.LENGTH_LONG).show();
                         Limpiar();
+
+                        createNotificationChannel();
+                        createNotification();
 
                     } else {
                         Toast.makeText(getActivity(), "Ups, Ocurrió un error en registro!!", Toast.LENGTH_LONG).show();
@@ -139,4 +155,27 @@ public class FragmentRegistro extends Fragment {
 
         imgfotoPlastic = view.findViewById(R.id.FotoPlastic); //por procesar
     }
+    private void createNotificationChannel(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            CharSequence name = "Noticacion";
+            NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, name, NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager notificationManager = (NotificationManager) getContext().getSystemService(NOTIFICATION_SERVICE);
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
+    }
+    private void createNotification(){
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity().getApplicationContext(), CHANNEL_ID);
+        builder.setSmallIcon(R.drawable.ic_baseline_delete_24);
+        builder.setContentTitle("Nuevo Plástico ");
+        builder.setContentText("Se agregó un nuevo plástico a la lista");
+        builder.setColor(Color.BLUE);
+        builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        builder.setLights(Color.MAGENTA, 1000, 1000);
+        builder.setVibrate(new long[]{1000,1000,1000,1000,1000});
+        builder.setDefaults(Notification.DEFAULT_SOUND);
+
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getActivity().getApplicationContext());
+        notificationManagerCompat.notify(NOTIFICACION_ID, builder.build());
+    }
+
 }
